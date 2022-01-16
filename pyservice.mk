@@ -5,11 +5,6 @@ clean:
 ## init
 init: venv-create  install-pip-tools 
 
-## init direnv
-init-direnv:
-	@echo "layout pipenv" >.envrc ; \
-	direnv allow .
-
 ## lint
 lint:
 	source .venv/bin/activate && pylint src --disable=R,C,W  --output-format=colorized
@@ -56,7 +51,6 @@ pip-sync:
 pip-sync-dev:
 	@source .venv/bin/activate && pip-sync requirements.txt requirements-dev.txt
 
-## install-pip-tools
 install-pip-tools:
 	@source .venv/bin/activate && pip install pip-tools
 
